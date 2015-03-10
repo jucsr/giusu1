@@ -20,7 +20,7 @@ public class StreamServer {
 		webcam.setViewSize(dimension);
 
 		StreamServerAgent serverAgent = new StreamServerAgent(webcam, dimension);
-		serverAgent.start(new InetSocketAddress("150.162.105.84", 20000));
+		serverAgent.start(new InetSocketAddress("150.162.105.71", 20000));
 		
 //		StreamServerAgent serverAgent2 = new StreamServerAgent(webcam2, dimension);
 //		serverAgent2.start(new InetSocketAddress("150.162.105.84", 8080));

@@ -27,7 +27,7 @@ public class StreamClient {
 		//setup the connection
 		logger.info("setup dimension :{}",dimension);
 		StreamClientAgent clientAgent = new StreamClientAgent(new StreamFrameListenerIMPL(),dimension);
-		clientAgent.connect(new InetSocketAddress("150.162.105.84", 20000));
+		clientAgent.connect(new InetSocketAddress("150.162.105.71", 20000));
 	}
 	
 	
