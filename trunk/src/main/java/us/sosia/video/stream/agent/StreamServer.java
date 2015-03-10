@@ -16,7 +16,7 @@ public class StreamServer {
 		Webcam.setAutoOpenMode(true);
 		Webcam webcam = Webcam.getWebcams().get(0);
 //		Webcam webcam2 = Webcam.getWebcams().get(1);
-		Dimension dimension = new Dimension(320, 240);
+		Dimension dimension = new Dimension(640, 480);
 		webcam.setViewSize(dimension);
 
 		StreamServerAgent serverAgent = new StreamServerAgent(webcam, dimension);
