@@ -1,23 +1,37 @@
 package main.java.us.sosia.video.stream.agent.ui;
 
 import java.awt.Dimension;
+import java.awt.Window;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
 
-public class SingleVideoDisplayWindow {
+import main.java.us.sosia.video.stream.agent.StreamClientAgent;
+
+public class SingleVideoDisplayWindow{ //implements WindowListener {
 	protected final VideoPanel videoPannel;
 	protected final JFrame window;
-
-	public SingleVideoDisplayWindow(String name,Dimension dimension) {
+	protected StreamClientAgent clientAgent;
+	
+	public SingleVideoDisplayWindow(String name,Dimension dimension, StreamClientAgent clientAgent) {
 		super();
 		this.window = new JFrame(name);
 		this.videoPannel = new VideoPanel();
-
+		this.clientAgent = clientAgent;
 		this.videoPannel.setPreferredSize(dimension);
 		this.window.add(videoPannel);
 		this.window.pack();
-		this.window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.window.addWindowListener(new WindowAdapter(){
+			 public void windowClosing(WindowEvent e)
+		        {
+		            System.out.println("Window Closing.........");
+		            close();
+		        }
+		});
+//		this.window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 	public void setVisible(boolean visible) {
@@ -28,8 +42,51 @@ public class SingleVideoDisplayWindow {
 		videoPannel.updateImage(image);
 	}
 	
-	public void close(){
+	public void close()
+	{
 		window.dispose();
+		clientAgent.stop();
 		videoPannel.close();
+		System.out.println("Entrei");
+		
 	}
+	
+//	@Override
+//	public void windowClosed(WindowEvent e)
+//	{
+//		close();	
+//	}
+//	@Override
+//	public void windowClosing(WindowEvent e) {
+//		// TODO Auto-generated method stub
+//		close();
+//	}
+//	@Override
+//	public void windowOpened(WindowEvent e) {
+//		// TODO Auto-generated method stub
+//		System.out.println("Entrado");
+//	}
+//
+//	@Override
+//	public void windowActivated(WindowEvent e) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//	@Override
+//	public void windowDeactivated(WindowEvent e) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//	@Override
+//	public void windowDeiconified(WindowEvent e) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//	@Override
+//	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
 }
