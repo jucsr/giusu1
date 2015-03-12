@@ -14,13 +14,13 @@ public class StreamServer {
 	 */
 	public static void main(String[] args) {
 		Webcam.setAutoOpenMode(true);
-		Webcam webcam = Webcam.getWebcams().get(0);
+		Webcam webcam = Webcam.getDefault();
 //		Webcam webcam2 = Webcam.getWebcams().get(1);
 		Dimension dimension = new Dimension(640, 480);
 		webcam.setViewSize(dimension);
 
 		StreamServerAgent serverAgent = new StreamServerAgent(webcam, dimension);
-		serverAgent.start(new InetSocketAddress("150.162.105.71", 20000));
+		serverAgent.start(new InetSocketAddress("150.162.105.84", 20000));
 		
 //		StreamServerAgent serverAgent2 = new StreamServerAgent(webcam2, dimension);
 //		serverAgent2.start(new InetSocketAddress("150.162.105.84", 8080));
