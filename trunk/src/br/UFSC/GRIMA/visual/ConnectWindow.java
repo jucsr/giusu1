@@ -22,7 +22,7 @@ public class ConnectWindow extends JFrame {
 		panel1 = new JPanel();
 		label1 = new JLabel();
 		textField1 = new JTextField();
-		button1 = new JButton();
+		button1 = new JToggleButton();
 
 		//======== this ========
 		Container contentPane = getContentPane();
@@ -56,7 +56,7 @@ public class ConnectWindow extends JFrame {
 			dialogPane.add(panel1, BorderLayout.NORTH);
 
 			//---- button1 ----
-			button1.setText("Connect");
+			button1.setText("Start Server!");
 			dialogPane.add(button1, BorderLayout.CENTER);
 		}
 		contentPane.add(dialogPane, BorderLayout.CENTER);
@@ -70,6 +70,6 @@ public class ConnectWindow extends JFrame {
 	private JPanel panel1;
 	private JLabel label1;
 	public JTextField textField1;
-	public JButton button1;
+	public JToggleButton button1;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }
