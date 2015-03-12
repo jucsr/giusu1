@@ -69,7 +69,7 @@ public class ConnectWindow extends JFrame {
 	private JPanel dialogPane;
 	private JPanel panel1;
 	private JLabel label1;
-	public JTextField textField1;
+	public static JTextField textField1;
 	public JToggleButton button1;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }
