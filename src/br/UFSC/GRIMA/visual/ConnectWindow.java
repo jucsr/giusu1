@@ -22,6 +22,8 @@ public class ConnectWindow extends JFrame {
 		panel1 = new JPanel();
 		label1 = new JLabel();
 		textField1 = new JTextField();
+		label2 = new JLabel();
+		textField2 = new JTextField();
 		button1 = new JToggleButton();
 
 		//======== this ========
@@ -52,6 +54,15 @@ public class ConnectWindow extends JFrame {
 				panel1.add(textField1, new GridBagConstraints(3, 0, 1, 1, 0.0, 0.0,
 					GridBagConstraints.CENTER, GridBagConstraints.BOTH,
 					new Insets(0, 0, 5, 5), 0, 0));
+
+				//---- label2 ----
+				label2.setText("Webcam");
+				panel1.add(label2, new GridBagConstraints(2, 1, 1, 1, 0.0, 0.0,
+					GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+					new Insets(0, 0, 0, 5), 0, 0));
+				panel1.add(textField2, new GridBagConstraints(3, 1, 1, 1, 0.0, 0.0,
+					GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+					new Insets(0, 0, 0, 5), 0, 0));
 			}
 			dialogPane.add(panel1, BorderLayout.NORTH);
 
@@ -69,7 +80,9 @@ public class ConnectWindow extends JFrame {
 	private JPanel dialogPane;
 	private JPanel panel1;
 	private JLabel label1;
-	public static JTextField textField1;
+	public JTextField textField1;
+	private JLabel label2;
+	public JTextField textField2;
 	public JToggleButton button1;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }
