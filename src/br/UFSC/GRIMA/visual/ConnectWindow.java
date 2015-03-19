@@ -22,8 +22,8 @@ public class ConnectWindow extends JFrame {
 		panel1 = new JPanel();
 		label1 = new JLabel();
 		textField1 = new JTextField();
-		label2 = new JLabel();
-		textField2 = new JTextField();
+		label3 = new JLabel();
+		textField3 = new JTextField();
 		button1 = new JToggleButton();
 
 		//======== this ========
@@ -39,9 +39,9 @@ public class ConnectWindow extends JFrame {
 			{
 				panel1.setLayout(new GridBagLayout());
 				((GridBagLayout)panel1.getLayout()).columnWidths = new int[] {0, 0, 0, 155, 0, 0, 0, 0};
-				((GridBagLayout)panel1.getLayout()).rowHeights = new int[] {0, 0, 0};
+				((GridBagLayout)panel1.getLayout()).rowHeights = new int[] {0, 0, 0, 0};
 				((GridBagLayout)panel1.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
-				((GridBagLayout)panel1.getLayout()).rowWeights = new double[] {0.0, 0.0, 1.0E-4};
+				((GridBagLayout)panel1.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 1.0E-4};
 
 				//---- label1 ----
 				label1.setText("IP:");
@@ -55,14 +55,17 @@ public class ConnectWindow extends JFrame {
 					GridBagConstraints.CENTER, GridBagConstraints.BOTH,
 					new Insets(0, 0, 5, 5), 0, 0));
 
-				//---- label2 ----
-				label2.setText("Webcam");
-				panel1.add(label2, new GridBagConstraints(2, 1, 1, 1, 0.0, 0.0,
+				//---- label3 ----
+				label3.setText("Porta Webcam:");
+				panel1.add(label3, new GridBagConstraints(2, 1, 1, 1, 0.0, 0.0,
 					GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-					new Insets(0, 0, 0, 5), 0, 0));
-				panel1.add(textField2, new GridBagConstraints(3, 1, 1, 1, 0.0, 0.0,
+					new Insets(0, 0, 5, 5), 0, 0));
+
+				//---- textField3 ----
+				textField3.setText("20000");
+				panel1.add(textField3, new GridBagConstraints(3, 1, 1, 1, 0.0, 0.0,
 					GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-					new Insets(0, 0, 0, 5), 0, 0));
+					new Insets(0, 0, 5, 5), 0, 0));
 			}
 			dialogPane.add(panel1, BorderLayout.NORTH);
 
@@ -81,8 +84,8 @@ public class ConnectWindow extends JFrame {
 	private JPanel panel1;
 	private JLabel label1;
 	public JTextField textField1;
-	private JLabel label2;
-	public JTextField textField2;
+	private JLabel label3;
+	public JTextField textField3;
 	public JToggleButton button1;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }

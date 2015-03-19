@@ -67,6 +67,6 @@ public class StreamClient
 	
 	public static void main(String [] args)
 	{
-		new StreamClient("150.162.105.84");
+		new StreamClient("150.162.105.76");
 	}
 }
