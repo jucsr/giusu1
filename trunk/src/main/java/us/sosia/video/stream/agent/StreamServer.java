@@ -12,8 +12,9 @@ import com.github.sarxos.webcam.Webcam;
 
 public class StreamServer extends ConnectWindow implements ActionListener {
 	static String ip = "";
+	int wb;
 	static StreamServerAgent serverAgent = null;
-	static Webcam webcam = Webcam.getDefault();
+	static Webcam webcam;
 	public StreamServer()
 	{
 		this.button1.addActionListener(this);
@@ -23,13 +24,15 @@ public class StreamServer extends ConnectWindow implements ActionListener {
 	public static void main(String[] args) {
 		StreamServer window = new StreamServer();
 		window.setVisible(true);
+		System.out.println(webcam.getWebcams());
 		
 	}
 	
-	public static void start()
+	public void start()
 	{
 		ip = textField1.getText();
-		webcam.getDefault();
+		wb = Integer.parseInt(textField2.getText());
+		webcam = webcam.getWebcams().get(wb);
 		webcam.setAutoOpenMode(true);
 		Dimension dimension = new Dimension(640, 480);
 		webcam.setViewSize(dimension);
@@ -41,6 +44,7 @@ public class StreamServer extends ConnectWindow implements ActionListener {
 	{
 		serverAgent.stop();
 		webcam.close();
+		
 		
 		
 		
@@ -60,6 +64,7 @@ public class StreamServer extends ConnectWindow implements ActionListener {
 			button1.setName("Start Server!");
 			stop();
 			
+				
 		}
 		
 	}

@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 import java.net.InetSocketAddress;
 
 import main.java.us.sosia.video.stream.agent.ui.SingleVideoDisplayWindow;
+import main.java.us.sosia.video.stream.agent.ui.VideoDisplayWindow;
 import main.java.us.sosia.video.stream.handler.StreamFrameListener;
 
 import org.slf4j.Logger;
@@ -22,6 +23,8 @@ public class StreamClient
 	 * */
 	private final static Dimension dimension = new Dimension(640, 480);
 	private static SingleVideoDisplayWindow displayWindow = null;
+	private static VideoDisplayWindow displayWindow1 = null;
+
 	protected final static Logger logger = LoggerFactory.getLogger(StreamClient.class);
 	protected  String ip = "";
 	int  c = 0;
@@ -46,17 +49,24 @@ public class StreamClient
 			//setup the videoWindow
 			displayWindow = new SingleVideoDisplayWindow("Stream",dimension, clientAgent);
 			displayWindow.setVisible(true);
-	
+//			displayWindow1 = new VideoDisplayWindow("name", dimension);
+//			displayWindow1.setVisible(true);
+
 		}
 	protected static class StreamFrameListenerIMPL implements StreamFrameListener{
 		private volatile long count = 0;
 		@Override
 		public void onFrameReceived(BufferedImage image) {
 			logger.info("frame received :{}",count++);
-			displayWindow.updateImage(image);			
+			displayWindow.updateImage(image);
+//			displayWindow1.updateBigVideo(image);
+//			displayWindow1.updateSmallVideo(image);
 		}
 		
 	}
 	
-
+	public static void main(String [] args)
+	{
+		new StreamClient("150.162.105.84");
+	}
 }
