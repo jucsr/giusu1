@@ -8,6 +8,7 @@ import java.awt.event.WindowListener;
 import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
+import javax.swing.JMenuItem;
 
 import main.java.us.sosia.video.stream.agent.StreamClientAgent;
 
@@ -15,9 +16,11 @@ public class SingleVideoDisplayWindow{ //implements WindowListener {
 	protected final VideoPanel videoPannel;
 	protected final JFrame window;
 	protected StreamClientAgent clientAgent;
+	protected JMenuItem menuItem;
 	
-	public SingleVideoDisplayWindow(String name,Dimension dimension, StreamClientAgent clientAgent) {
+	public SingleVideoDisplayWindow(String name,Dimension dimension, StreamClientAgent clientAgent, JMenuItem menuItem) {
 		super();
+		this.menuItem = menuItem;
 		this.window = new JFrame(name);
 		this.videoPannel = new VideoPanel();
 		this.clientAgent = clientAgent;
@@ -47,8 +50,7 @@ public class SingleVideoDisplayWindow{ //implements WindowListener {
 		window.dispose();
 		clientAgent.stop();
 		videoPannel.close();
-		System.out.println("Entrei");
-		
+		menuItem.setEnabled(true);
 	}
 	
 //	@Override
