@@ -102,7 +102,7 @@ public class StreamServer extends ConnectWindow implements ActionListener {
 			         System.out.println("Nova conexão com o cliente " + cliente.getInetAddress().getHostAddress());
 			         PrintStream ps = new PrintStream(cliente.getOutputStream());
 			         clientes.add(ps);
-			         TrataCliente tc = new TrataCliente(clientes, webcam.getWebcams().size() );
+			         TrataCliente tc = new TrataCliente(clientes, webcam);
 			         new Thread(tc).start();
 			         System.out.println("Thread Ligada!");
 			   }
