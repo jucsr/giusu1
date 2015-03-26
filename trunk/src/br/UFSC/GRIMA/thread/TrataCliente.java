@@ -1,28 +1,34 @@
 package br.UFSC.GRIMA.thread;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintStream;
-import java.net.Socket;
 import java.util.ArrayList;
-import java.util.Scanner;
+
+import com.github.sarxos.webcam.Webcam;
 
 public class TrataCliente implements Runnable {
 	 
 		private ArrayList<PrintStream> clientes;
 		PrintStream saida;
-		int webcans;
-	 
-	   public TrataCliente(ArrayList<PrintStream> clientes, int webcans) {
+		Webcam webcans;
+		ArrayList<String> listaPadrao = new ArrayList<String>();
+ 	 
+	   public TrataCliente(ArrayList<PrintStream> clientes, Webcam webcans) {
 	     this.clientes = clientes;
 	     this.webcans = webcans;
 	   }
 	 
 	   public void run() {
-		  int teclado = webcans;
+		  for(int j = 0 ;  j < webcans.getWebcams().size() ; j++)
+		  {
+			  listaPadrao.add(webcans.getWebcams().get(j).getName());
+		  }
+		  listaPadrao.add(webcans.getWebcams().size() + "");
 		  for(int i = 0 ; i < clientes.size() ; i++)
-			saida = new PrintStream(clientes.get(i));
-			saida.println(teclado);
+			for(int  k = 0 ;  k < listaPadrao.size(); k++)
+			{
+				saida = new PrintStream(clientes.get(i));
+				saida.println(listaPadrao.get(k));
+			}
 //			   while (teclado.hasNextLine())
 //			   {
 //				   saida.println(teclado.nextLine());

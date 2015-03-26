@@ -67,6 +67,6 @@ public class StreamClient
 	
 	public static void main(String [] arg0)
 	{
-	
+		new StreamClient("150.162.105.71", 20000, new JMenuItem());
 	}
 }
