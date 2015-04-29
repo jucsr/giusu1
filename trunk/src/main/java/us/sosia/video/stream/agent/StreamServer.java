@@ -9,8 +9,10 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 
+import javax.swing.JFrame;
 import javax.swing.SwingWorker;
 
+import br.UFSC.GRIMA.thread.MyIp;
 import br.UFSC.GRIMA.thread.TrataCliente;
 import br.UFSC.GRIMA.visual.ConnectWindow;
 
@@ -27,15 +29,22 @@ public class StreamServer extends ConnectWindow implements ActionListener {
 	static Webcam webcam;
 	public StreamServer()
 	{
+		ip = MyIp.getMyIp();
 		this.button1.addActionListener(this);
-		
+		this.textPane1.setText("Localhost: " + ip);
+		this.textPane1.setText("\nCams List: " + ip);
+		for(int i = 0; i < webcam.getWebcams().size(); i++)
+		{
+			this.textPane1.setText(this.textPane1.getText() + "\n" + (i + 1) + " - " + webcam.getWebcams().get(i));
+		}
+		this.textField1.setText(ip);
+		this.setDefaultCloseOperation(StreamServer.EXIT_ON_CLOSE);
 	}
 	
 	public static void main(String[] args) {
 		StreamServer window = new StreamServer();
 		window.setVisible(true);
 		System.out.println(webcam.getWebcams());
-		
 	}
 	
 	public void start()
@@ -99,7 +108,7 @@ public class StreamServer extends ConnectWindow implements ActionListener {
 			   while(true)
 			   {
 			    	 Socket cliente = servidor.accept();
-			         System.out.println("Nova conexão com o cliente " + cliente.getInetAddress().getHostAddress());
+			         System.out.println("Nova conexï¿½o com o cliente " + cliente.getInetAddress().getHostAddress());
 			         PrintStream ps = new PrintStream(cliente.getOutputStream());
 			         clientes.add(ps);
 			         TrataCliente tc = new TrataCliente(clientes, webcam);
